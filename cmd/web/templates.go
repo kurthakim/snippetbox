@@ -8,7 +8,7 @@ import (
 ) 
 
 type templateData struct {
-	currentYear int
+	CurrentYear int
 	Snippet *models.Snippet
 	Snippets []*models.Snippet
 }
