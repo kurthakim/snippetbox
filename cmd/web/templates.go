@@ -6,17 +6,19 @@ import (
 	"time"
 
 	"snippetbox.kurt.net/internal/models"
-) 
+)
 
 type templateData struct {
-	CurrentYear int
-	Snippet *models.Snippet
-	Snippets []*models.Snippet
-	Form any
-	Flash string
+	CurrentYear     int
+	Snippet         *models.Snippet
+	Snippets        []*models.Snippet
+	Form            any
+	Flash           string
+	IsAuthenticated bool
+	CSRFToken       string
 }
 
-func humanDate (t time.Time) string {
+func humanDate(t time.Time) string {
 	return t.Format("02 Jan 2006 at 15:04")
 }
 
@@ -49,7 +51,6 @@ func newTemplateCache() (map[string]*template.Template, error) {
 		if err != nil {
 			return nil, err
 		}
-
 
 		cache[name] = ts
 	}
