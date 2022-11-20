@@ -60,12 +60,11 @@ func (app *application) snippetCreate(w http.ResponseWriter, r *http.Request) {
 }
 
 type snippetCreateForm struct {
-	Title string `form:"title"`
-	Content string `form:"content"`
-	Expires int	`form:"expires"`
+	Title               string `form:"title"`
+	Content             string `form:"content"`
+	Expires             int    `form:"expires"`
 	validator.Validator `form:"-"`
 }
-
 
 func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request) {
 	var form snippetCreateForm
@@ -101,9 +100,9 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 }
 
 type userSignupForm struct {
-	Name string `form:"name"`
-	Email string `form:"email"`
-	Password string `form:"password"`
+	Name                string `form:"name"`
+	Email               string `form:"email"`
+	Password            string `form:"password"`
 	validator.Validator `form:"-"`
 }
 
@@ -143,7 +142,7 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 			data := app.newTemplateData(r)
 			data.Form = form
 			app.render(w, http.StatusUnprocessableEntity, "signup.tmpl", data)
-		}	else {
+		} else {
 			app.serverError(w, err)
 		}
 
@@ -156,8 +155,8 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 }
 
 type userLoginForm struct {
-	Email string `form:"email"`
-	Password string `form:"password"`
+	Email               string `form:"email"`
+	Password            string `form:"password"`
 	validator.Validator `form:"-"`
 }
 
