@@ -52,6 +52,4 @@ func TestSecureHeaders(t *testing.T) {
 
 	assert.Equal(t, string(body), "OK")
 
-
-
 }

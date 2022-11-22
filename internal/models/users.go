@@ -17,11 +17,11 @@ type UserModelInterface interface {
 }
 
 type User struct {
-	ID int
-	Name string
-	Email string
+	ID             int
+	Name           string
+	Email          string
 	HashedPassword []byte
-	Created time.Time
+	Created        time.Time
 }
 
 type UserModel struct {
@@ -49,7 +49,7 @@ func (m *UserModel) Insert(name, email, password string) error {
 	}
 
 	return nil
-		
+
 }
 
 func (m *UserModel) Authenticate(email, password string) (int, error) {

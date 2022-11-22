@@ -8,10 +8,9 @@ import (
 
 var EmailRX = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 
-
 type Validator struct {
 	NonFieldErrors []string
-	FieldErrors map[string]string
+	FieldErrors    map[string]string
 }
 
 func (v *Validator) Valid() bool {
@@ -42,7 +41,7 @@ func NotBlank(value string) bool {
 	return strings.TrimSpace(value) != ""
 }
 
-func MaxChars(value  string, n int) bool {
+func MaxChars(value string, n int) bool {
 	return utf8.RuneCountInString(value) <= n
 }
 
