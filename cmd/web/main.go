@@ -19,7 +19,7 @@ import (
 )
 
 type application struct {
-	debug					 bool
+	debug          bool
 	errorLog       *log.Logger
 	infoLog        *log.Logger
 	snippets       models.SnippetModelInterface
